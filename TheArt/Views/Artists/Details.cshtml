@@ -2,6 +2,7 @@
   Layout = "_Layout";
 }
 
+@using TheArt.Models;
 @model TheArt.Models.Artist
 
 <h1>Artist Details</h1>
@@ -15,18 +16,12 @@
 else
 {
   <h4>Pieces:</h4>
-  @*<ul>
-    @foreach(var join in Model.Movements)
+  <ul>
+    @foreach(Piece piece in Model.Pieces)
     {
-      <li>@Html.ActionLink($"{join.Piece.PieceName}", "Details", "Pieces", new { id = @join.Piece.PieceId })</li>
-      @using (Html.BeginForm("DeletePiece", "Artists"))// we need to make a DeletePiece method in artist controller
-      {
-        @Html.Hidden("joinId", @join.ArtistMovementId)
-        @Html.Hidden("artistId", Model.ArtistId);
-        <input type="submit" value="Remove piece from artist" />
-      }
+      <li>@piece.PieceName</li>
     }
-  </ul>*@
+  </ul>
 }
 
 @if(@Model.Movements.Count() == 0)
@@ -40,7 +35,7 @@ else
     @foreach(var join in Model.Movements)
     {
       <li>@Html.ActionLink($"{join.Movement.MovementName}", "Details", "Movements", new { id = @join.Movement.MovementId})</li>
-      @using (Html.BeginForm("DeleteMovement", "Artists")) //we need to make a DeleteMovement method in artist controller
+      @using (Html.BeginForm("DeleteMovement", "Artists"))
       {
         @Html.Hidden("joinId", @join.ArtistMovementId)
         @Html.Hidden("artistId", Model.ArtistId);
