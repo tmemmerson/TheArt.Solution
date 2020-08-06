@@ -1,0 +1,18 @@
+
+@{
+  Layout = "_Layout";
+}
+
+@model TheArt.Models.Movement
+
+<h1>Add movement</h1>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.MovementName)
+  @Html.TextBoxFor(model => model.MovementName)
+  <input type="submit" value="add" />
+}
+
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
+<p>@Html.ActionLink("See all movements", "Index")</p>

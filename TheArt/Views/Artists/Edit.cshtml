@@ -1,0 +1,27 @@
+
+@{
+  Layout = "_Layout";
+}
+
+@model TheArt.Models.Artist
+
+<h2>Edit @Html.DisplayFor(model => model.Name)</h2>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.ArtistId)
+
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name)
+
+  @Html.Label("Add Movement:") 
+  @Html.DropDownList("MovementId")
+
+  @Html.Label("Add Piece:")
+  @Html.DropDownList("PieceId")
+
+  <input type="submit" value="Update" />
+}
+
+<p>@Html.ActionLink("Artist Index", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

@@ -1,0 +1,30 @@
+
+@{
+  Layout = "_Layout";
+}
+
+@model TheArt.Models.Movement
+
+<h1>Movement Details</h1>
+<hr />
+<h2>@Html.DisplayFor(model => model.MovementName)</h2>
+
+@if(@Model.Artists.Count() == 0)
+{
+  <p>There are none</p>
+}
+else
+{
+  <h4>Movements:</h4>
+  <ul>
+    @foreach (var join in Model.Artists)
+    {
+    <li>@Html.ActionLink($"{join.Artist.Name}", "Details", "Artists", new { id = @join.Artist.ArtistId })</li> 
+    }
+    </ul>
+}
+
+<p>@Html.ActionLink("Edit This movement", "Edit", new { id = Model.MovementId })</p>
+<p>@Html.ActionLink("Delete This movement", "Delete", new { id = Model.MovementId })</p>
+<p>@Html.ActionLink("movement list", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

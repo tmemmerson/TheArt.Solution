@@ -1,0 +1,55 @@
+@{
+  Layout = "_Layout";
+}
+
+@model TheArt.Models.Artist
+
+<h1>Artist Details</h1>
+<hr />
+<h2>@Html.DisplayFor(model => model.Name)</h2>
+
+@if(@Model.ArtistMovement.Count() == 0)
+{
+  <p>this guy is kind of a lazy dude. he hasn't made anything.</p>
+}
+else
+{
+  <h4>Pieces:</h4>
+  <ul>
+    @foreach(var join in Model.ArtistMovement)
+    {
+      <li>@Html.ActionLink($"{join.Piece.PieceName}", "Details", "Pieces", new { id = @join.Piece.PieceId })</li>
+      @using (Html.BeginForm("DeletePiece", "Artists"))// we need to make a DeletePiece method in artist controller
+      {
+        @Html.Hidden("joinId", @join.ArtistMovementId)
+        @Html.Hidden("artistId", Model.ArtistId);
+        <input type="submit" value="Remove piece from artist" />
+      }
+    }
+    </ul>
+}
+
+@if(@Model.ArtistMovement.Count() == 0)
+{
+  <p>this guy isn't a part of a movement</p>
+}
+else
+{
+  <h4>Movements: </h4>
+  <ul>
+    @foreach(var join in Model.ArtistMovement)
+    {
+      <li>@Html.ActionLink($"{join.Movement.MovementName}", "Details", "Movements", new { id = @join.Movement.MovementId})</li>
+      @using (Html.BeginForm("DeleteMovement", "Artists")) //we need to make a DeleteMovement method in artist controller
+      {
+        @Html.Hidden("joinId", @join.ArtistMovementId)
+        @Html.Hidden("artistId", Model.ArtistId);
+        <input type="submit" value="Remove This movement" />
+      }
+    }
+  </ul>
+}
+
+<p>@Html.ActionLink("Edit Artist", "Edit", new { id = Model.ArtistId })</p>
+<p>@Html.ActionLink("Delete Artist", "Delete", new { id = Movel.ArtistId })</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

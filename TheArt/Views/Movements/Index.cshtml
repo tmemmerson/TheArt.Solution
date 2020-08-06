@@ -1,0 +1,25 @@
+
+@{
+  Layout = "_Layout";
+}
+
+@using TheArt.Models
+@model IEnumerable<TheArt.Models.Movements>
+
+<h1>Movements:</h1>
+
+@if(@Model.Count() == 0)
+{
+  <p>There are no movements in the database</p>
+}
+else
+{
+  <ul>
+  @foreach(Movement movement in Model)
+  {
+    <li>@Html.ActionLink($"{movement.MovementName}", "Details", new { id = movement.MovementName })</li>
+  }
+  </ul>
+}
+
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

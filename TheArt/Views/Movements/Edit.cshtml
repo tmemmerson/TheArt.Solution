@@ -1,0 +1,23 @@
+
+@{
+  Layout = "_Layout";
+}
+
+@model TheArt.Models.Movement
+
+<h2>Edit @Html.DisplayFor(model => model.MovementName)</h2>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.MovementId)
+
+  @Html.LabelFor(model => model.MovementName)
+  @Html.TextBoxFor(model => model.MovementName)
+
+  @Html.Label("Add Artist:")
+  @Html.DropDownList("ArtistId")
+
+  <input type="submit" value="update" />
+}
+
+<p>@Html.ActionLink("movement Index", "Index")</p>

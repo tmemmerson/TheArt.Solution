@@ -1,0 +1,25 @@
+  
+@{
+  Layout = "_Layout";
+}
+
+@model TheArt.Models.Piece;
+
+<h1>Add Piece</h1>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.PieceName)
+  @Html.TextBoxFor(model => model.PieceName) <br>
+
+  @Html.LabelFor(model => model.PieceDate)
+  @Html.TextBoxFor(model => model.PieceDate, new { @type="date" })<br>
+
+  @Html.LabelFor(model => model.Artist)
+  @Html.DropDownList("AtristId") <br>
+
+  <input type="submit" value="Add new piece" /> <br>
+}
+
+<p>@Html.ActionLink("Piece Index", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

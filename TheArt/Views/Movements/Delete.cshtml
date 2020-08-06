@@ -1,0 +1,17 @@
+
+@{
+  Layout = "_Layout";
+}
+
+@model TheArt.Models.Movement
+
+<h2>Are you sure you want to delete the @Html.DisplayFor(model => model.MovementName) movement?</h2>
+
+@Html.DisplayNameFor(model => model.MovementName): @Html.DisplayFor(model => model.MovementName)
+@using (Html.BeginForm())
+{
+  <input type="submit" value="Delete" />
+}
+
+@Html.ActionLink("See all movements", "Index")
+@Html.ActionLink("Home", "Index", "Home")
