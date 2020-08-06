@@ -14,7 +14,7 @@ namespace TheArt.Models
         public string ArtistName { get; set; }
         public DateTime DateOfBirth { get; set; }
         public DateTime DateOfDeath { get; set; }
-        public virtual ICollection<Piece> Pieces { get; set; }
+        public ICollection<Piece> Pieces { get; set; }
         public ICollection<ArtistMovement> Movements { get; set;} 
     }
 }
