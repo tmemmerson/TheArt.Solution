@@ -15,35 +15,26 @@ namespace TheArt.Controllers
       _db = db;
     }
 
-    public ActionResult Index(string searchQuery = null)
+    public ActionResult Index()
     {
-      if (searchQuery == null)
-      {
-        ViewBag.SearchFlag = 0;
-        return View(_db.Movements.ToList());
-      }
-      else
-      {
-        ViewBag.SearchFlag = 1;
-        List<Movement> model = _db.Movements.Where(movement => movement.MovementName.ToLower().Contains(searchQuery.ToLower())).ToList();
-        return View(model);
-      }
+      List<Movement> model = _db.Movements.ToList();
+      return View(model);
     }
 
-    public ActionResult Create()
+    public ActionResult Create() //good
     {
       return View();
     }
 
     [HttpPost]
-    public ActionResult Create(Movement movement)
+    public ActionResult Create(Movement movement) //good
     {
       _db.Movements.Add(movement);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
-    public ActionResult Details(int id)
+    public ActionResult Details(int id) //good
     {
       var thisMovement = _db.Movements
           .Include(movement => movement.Artists)
@@ -52,28 +43,28 @@ namespace TheArt.Controllers
       return View(thisMovement);
     }
 
-    public ActionResult Edit(int id)
+    public ActionResult Edit(int id) //good
     {
       var thisMovement = _db.Movements.FirstOrDefault(movement => movement.MovementId == id);
       return View(thisMovement);
     }
 
     [HttpPost]
-    public ActionResult Edit(Movement movement)
+    public ActionResult Edit(Movement movement) //good
     {
       _db.Entry(movement).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
-    public ActionResult Delete(int id)
+    public ActionResult Delete(int id) //good
     {
       var thisMovement = _db.Movements.FirstOrDefault(movement => movement.MovementId == id);
       return View(thisMovement);
     }
 
     [HttpPost, ActionName("Delete")]
-    public ActionResult DeleteConfirmed(int id)
+    public ActionResult DeleteConfirmed(int id) //good
     {
       var thisMovement = _db.Movements.FirstOrDefault(movement => movement.MovementId == id);
       _db.Movements.Remove(thisMovement);
