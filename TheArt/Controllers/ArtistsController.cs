@@ -11,12 +11,12 @@ namespace TheArt.Controllers
   {
     private readonly TheArtContext _db;
 
-    public ArtistsController(TheArtContext db) //good
+    public ArtistsController(TheArtContext db) //checked
     {
       _db = db;
     }
 
-    public ActionResult Index() //good
+    public ActionResult Index() //unsure
     {
       List<Artist> model = _db.Artists.ToList(); //create list out of database table called artists
       return View(model);
@@ -25,6 +25,7 @@ namespace TheArt.Controllers
     public ActionResult Create() //good
     {
       ViewBag.MovementId = new SelectList(_db.Movements, "MovementId", "MovementName");
+      ViewBag.Piece = new SelectList(_db.Pieces, "PieceId", "PieceName");
       return View();
     }
 
@@ -44,6 +45,7 @@ namespace TheArt.Controllers
     public ActionResult Details(int id) //good
     {
       var thisArtist = _db.Artists
+        .Include(artist => artist.Pieces)
         .Include(artist => artist.Movements)
         .ThenInclude(join => join.Movement)
         .FirstOrDefault(artist => artist.ArtistId == id);
@@ -55,6 +57,7 @@ namespace TheArt.Controllers
     {
       var thisArtist = _db.Artists.FirstOrDefault(artists => artists.ArtistId == id);
       ViewBag.MovementId = new SelectList(_db.Movements, "MovementId", "MovementName");
+      ViewBag.PieceId = new SelectList(_db.Pieces, "PieceId", "PieceName");
       return View(thisArtist);
     }
   
@@ -94,6 +97,7 @@ namespace TheArt.Controllers
       return RedirectToAction("Index");
     }
     
+    
     public ActionResult AddMovement(int id) //good
     {
       var thisArtist = _db.Artists.FirstOrDefault(artists => artists.ArtistId == id);
@@ -111,6 +115,5 @@ namespace TheArt.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-
   }
 }
