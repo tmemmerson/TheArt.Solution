@@ -25,7 +25,7 @@ namespace TheArt.Controllers
       else
       {
         ViewBag.SearchFlag = 1;
-        List<Movement> model = _db.Movements.Where(movement => movement.Name.ToLower().Contains(searchQuery.ToLower())).ToList();
+        List<Movement> model = _db.Movements.Where(movement => movement.MovementName.ToLower().Contains(searchQuery.ToLower())).ToList();
         return View(model);
       }
     }
@@ -68,7 +68,7 @@ namespace TheArt.Controllers
 
     public ActionResult Delete(int id)
     {
-      var thisMovement = _db.Movements.FirstOrDefault(movement => Movement.MovementId == id);
+      var thisMovement = _db.Movements.FirstOrDefault(movement => movement.MovementId == id);
       return View(thisMovement);
     }
 

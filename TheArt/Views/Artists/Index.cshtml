@@ -3,6 +3,7 @@
 }
 
 @using TheArt.Models
+@model List<TheArt.Models.Artist>;
 
 
 <h1>Artists</h1>
@@ -16,9 +17,10 @@ else
   <ul>
     @foreach(Artist artist in Model)
     {
-      <li>@Html.ActionLink($"{artist.Name}", "Details", new { id = artist.ArtistId })</li>
+      <li>@Html.ActionLink($"{artist.ArtistName}", "Details", new { id = artist.ArtistId })</li>
     }
   </ul>
 }
 
+<p>@Html.ActionLink("Add an artist", "Create")</p>
 <p>@Html.ActionLink("Home", "Index", "Home")</p>

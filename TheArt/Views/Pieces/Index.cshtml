@@ -1,0 +1,20 @@
+@{
+  Layout = "_Layout";
+}
+
+@using TheArt.Models;
+@model List<TheArt.Models.Piece>;
+
+<h1>Pieces</h1>
+
+@if (Model.Count() == 0)
+{
+  <h3>You have not added any pieces yet</h3>
+}
+
+@foreach (Piece piece in Model)
+{
+  <li>@Html.ActionLink($"{piece.PieceName}", "Details", new { id = piece.PieceId })</li>
+}
+
+<p>@Html.ActionLink("Add a new piece", "Create")</p>

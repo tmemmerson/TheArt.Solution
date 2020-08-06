@@ -7,11 +7,11 @@ using System.Linq;
 
 namespace TheArt.Controllers
 {
-  public class ArtistsController : Controller
+  public class PiecesController : Controller
   {
     private readonly TheArtContext _db;
 
-    public ArtistsController(TheArtContext db)
+    public PiecesController(TheArtContext db)
     {
       _db = db;
     }
@@ -24,14 +24,14 @@ namespace TheArt.Controllers
     
     public ActionResult Create()
     {
-      ViewBag.ArtistId = new SelectList(_db.Artist, "ArtistId", "Name");
+      ViewBag.ArtistId = new SelectList(_db.Artists, "ArtistId", "Name");
       return View();
     }
 
     [HttpPost]
     public ActionResult Create(Piece Piece)
     {
-      _db.Artists.Add(Piece);
+      _db.Pieces.Add(Piece);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }

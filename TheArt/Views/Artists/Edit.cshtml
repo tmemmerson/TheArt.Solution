@@ -1,18 +1,17 @@
-
 @{
   Layout = "_Layout";
 }
 
 @model TheArt.Models.Artist
 
-<h2>Edit @Html.DisplayFor(model => model.Name)</h2>
+<h2>Edit @Html.DisplayFor(model => model.ArtistName)</h2>
 
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.ArtistId)
 
-  @Html.LabelFor(model => model.Name)
-  @Html.TextBoxFor(model => model.Name)
+  @Html.LabelFor(model => model.ArtistName)
+  @Html.TextBoxFor(model => model.ArtistName)
 
   @Html.Label("Add Movement:") 
   @Html.DropDownList("MovementId")
