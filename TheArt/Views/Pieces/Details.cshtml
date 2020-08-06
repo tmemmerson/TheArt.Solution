@@ -2,7 +2,10 @@
   Layout = "_Layout";
 }
 
+@using TheArt.Models;
 @model TheArt.Models.Piece
 <h1> Piece details</h1>
 <hr/>
-@Html.DisplayNameFor(model => model.PieceName): @Html.DisplayFor(model => model.PieceName) | @Html.DisplayNameFor(model => model.PieceDate): @Html.DisplayFor(model => model.PieceDate)
+@Html.DisplayNameFor(model => model.PieceName): @Html.DisplayFor(model => model.PieceName)<br>
+  |  @Html.DisplayNameFor(model => model.PieceDate): @Html.DisplayFor(model => model.PieceDate, new { patern="[0-9]{2}/[0-9]{2}/[0-9]{4}"})<br>
+  |  @Html.DisplayNameFor(model => model.Artist.ArtistName): <p>@ViewBag.Artist</p>
