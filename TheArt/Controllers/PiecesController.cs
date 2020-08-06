@@ -24,7 +24,7 @@ namespace TheArt.Controllers
     
     public ActionResult Create()
     {
-      ViewBag.ArtistId = new SelectList(_db.Artists, "ArtistId", "Name");
+      ViewBag.ArtistId = new SelectList(_db.Artists, "ArtistId", "ArtistName");
       return View();
     }
 
