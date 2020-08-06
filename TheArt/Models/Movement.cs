@@ -15,6 +15,6 @@ namespace TheArt.Models
       public string MovementDescription { get; set; }
       public DateTime MovementStart { get; set; }
       public DateTime MovementEnd { get; set; }
-      public ICollection<ArtistMovement> Artists { get; set; }
+      public virtual ICollection<ArtistMovement> Artists { get; set; }
     }
 }
