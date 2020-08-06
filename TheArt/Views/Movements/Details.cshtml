@@ -2,26 +2,26 @@
   Layout = "_Layout";
 }
 
-@using System;
-@model TheArt.Models.Movement
+@using TheArt.Models;
+@model TheArt.Models.Movement;
 
 <h1>Movement Details</h1>
 <hr />
-<h2>@Html.DisplayFor(model => model.MovementName)</h2>
+<h2>@Html.DisplayNameFor(model => model.MovementName): @Html.DisplayFor(model => model.MovementName)</h2>
 
 @if(@Model.Artists.Count() == 0)
 {
-  <p>There are none</p>
+  <p>There are no artists listed yet</p>
 }
 else
 {
   <h4>Movements:</h4>
   <ul>
-    @foreach (var join in Model.Artists)
+    @foreach(var join in Model.Artists)
     {
     <li>@Html.ActionLink($"{join.Artist.ArtistName}", "Details", "Artists", new { id = @join.Artist.ArtistId })</li> 
     }
-    </ul>
+  </ul>
 }
 
 <p>@Html.ActionLink("Edit This movement", "Edit", new { id = Model.MovementId })</p>
