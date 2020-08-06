@@ -38,7 +38,7 @@ namespace TheArt.Controllers
 
     public ActionResult Details(int id)
     {
-      Piece thisPiece = _db.Pieces.FirstOrDefault(pieces => pieces.PieceId == id)
+      Piece thisPiece = _db.Pieces.FirstOrDefault(pieces => pieces.PieceId == id);
       return View(thisPiece);
     }
   }
