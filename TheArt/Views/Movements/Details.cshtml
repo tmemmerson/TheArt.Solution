@@ -1,8 +1,8 @@
-
 @{
   Layout = "_Layout";
 }
 
+@using System;
 @model TheArt.Models.Movement
 
 <h1>Movement Details</h1>
@@ -19,7 +19,7 @@ else
   <ul>
     @foreach (var join in Model.Artists)
     {
-    <li>@Html.ActionLink($"{join.Artist.Name}", "Details", "Artists", new { id = @join.Artist.ArtistId })</li> 
+    <li>@Html.ActionLink($"{join.Artist.ArtistName}", "Details", "Artists", new { id = @join.Artist.ArtistId })</li> 
     }
     </ul>
 }
