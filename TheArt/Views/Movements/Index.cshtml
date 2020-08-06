@@ -16,7 +16,7 @@ else
   <ul>
   @foreach(Movement movement in Model)
   {
-    <li>@Html.ActionLink($"{movement.MovementName}", "Details", new { id = movement.MovementName })</li>
+    <li>@Html.ActionLink($"{movement.MovementName}", "Details", new { id = movement.MovementId })</li>
   }
   </ul>
 }
