@@ -1,11 +1,11 @@
-**<h1 align = "center"> University Registrar**
+**<h1 align = "center"> The Art**
 
 
 <h1 align="center">
-  <img width="900" height="450" src="https://coding-assets.s3-us-west-2.amazonaws.com/readme_hero_images/UniversityRegistrar.Solution.jpg">
+  <img width="900" height="450" src="https://coding-assets.s3-us-west-2.amazonaws.com/hero_images/TheArt.Solution.jpg">
 </h1>
 
-**<h1 align="center">"Register and fork over those dollas"**
+**<h1 align="center">"you have dollars, we have art"**
 
 
 **<h4 align = "center">
@@ -24,16 +24,7 @@
 
 **ABOUT**
 
-
-* As registrar, I need to add name & enrollment date for students
-
-* As registrar, I need to add courses that the university offers
-
-* As registrar, I should be able to provide a course name & number 
-
-* As a registrar, I want to be able to assign students to a course
-
-* Courses have many students & students take courses concurrently
+we've got artists, we've got art. come look at this stuff
 
 
 ## **✅REQUIREMENTS**
@@ -49,7 +40,7 @@
 
 copy this url to clone this project to your local system:
 ```html
-https://github.com/tmemmerson/UniversityRegistrar.Solution.git
+https://github.com/tmemmerson/TheArt.Solution.git
 ```
 
 <br>
