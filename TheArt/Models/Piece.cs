@@ -17,6 +17,5 @@ namespace TheArt.Models
     public byte[] PieceImage { get; set; }
     public int ArtistId { get; set; }
     public Artist Artist { get; set; }
-    
   }
 }
