@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model TheArt.Models.Artist
+
+<h1>Add a Movent</h1>
+
+<h4>Add a Movement to this artist: @Html.DisplayFor(model => model.ArtistName)</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.ArtistId)
+
+    @Html.Label("Select movement")
+    @Html.DropDownList("MovementId")
+
+    <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Back to artists", "Index")</p>
