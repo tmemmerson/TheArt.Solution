@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace TheArt.Models
 {
@@ -12,7 +13,9 @@ namespace TheArt.Models
         }
         public int ArtistId { get; set; }
         public string ArtistName { get; set; }
+        [DataType(DataType.Date)]
         public DateTime DateOfBirth { get; set; }
+        [DataType(DataType.Date)]
         public DateTime DateOfDeath { get; set; }
         public ICollection<Piece> Pieces { get; set; }
         public ICollection<ArtistMovement> Movements { get; set;} 
