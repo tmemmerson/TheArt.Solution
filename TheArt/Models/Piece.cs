@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.ComponentModel.DataAnnotations;
 
 namespace TheArt.Models
 {
@@ -13,6 +14,7 @@ namespace TheArt.Models
     [DisplayName("Piece Name")]
     public string PieceName { get; set; }
     [DisplayName("Date Piece was Created")]
+    [DataType(DataType.Date)]
     public DateTime PieceDate { get; set; }
     public byte[] PieceImage { get; set; }
     public int ArtistId { get; set; }
